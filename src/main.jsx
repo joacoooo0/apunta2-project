@@ -10,8 +10,10 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
 import LoginPage from './Crud/LoginPage.jsx'
 import RegisterPage from './Crud/RegisterPage.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -27,9 +29,13 @@ const router = createBrowserRouter([
     element: <Soporte />
   },
   {
-    path: "LoginPage",
+    path: "/LoginPage",
     element: <LoginPage />
-  }
+  },
+  {
+    path: "/RegisterPage",
+    element: <RegisterPage />
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

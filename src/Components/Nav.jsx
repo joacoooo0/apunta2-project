@@ -2,48 +2,83 @@
 import { IconSunFilled } from '@tabler/icons-react';
 import { IconUserFilled } from '@tabler/icons-react';
 import { IconBookmarksFilled } from '@tabler/icons-react';
-import { Link } from 'react-router-dom';
+
+import { Link } from 'react-scroll';
 
 const Nav = () => {
     return (
         <>
-            <div className="md:flex justify-center">
-                <div className="font-gabarito text-white bg-[#5a7834] w-[1533px] h-[64px] pl-[30px] pr-[30px] rounded-[20px] md:flex items-center justify-between">
+            <div className="md:flex justify-center px-24 py-10">
+                <div className="font-gabarito text-white w-[1533px] h-[80px] md:flex items-center justify-between">
 
                     <div className='md:flex justify-center items-center'>
                         <span className='pr-2'> <IconBookmarksFilled width={48} height={48} color='white' /></span>
                         <span className="font-semibold text-[30px]">
-                            <Link to="/">ApuntaDos</Link>
+                            <Link activeClass="active"
+                                to="/"
+                                spy={true}
+                                smooth={true}
+                                offset={-100}
+                                duration={500} >ApuntaDos</Link>
                         </span>
                     </div>
                     <div >
                         <nav >
-                            <ul className="md:flex md:items-center justify-center">
+                            <ul className="md:flex md:items-center justify-center ">
                                 <li >
-                                    <Link to="/Soporte"><span className="text-[20px]">Soporte</span></Link>
+                                    <button>
+                                        <Link activeClass="active"
+                                            to="/"
+                                            spy={true}
+                                            smooth={true}
+                                            offset={-100}
+                                            duration={500} >
+                                            <span className="text-[20px]">Inicio</span>
+                                        </Link>
+                                    </button>
+                                </li>
+                                <li className='pl-[33px]'>
+                                    <button>
+                                        <Link activeClass="active"
+                                            to="Nosotros"
+                                            spy={true}
+                                            smooth={true}
+                                            offset={-100}
+                                            duration={500} >
+                                            <span className="text-[20px]">Nosotros</span>
+                                        </Link>
+                                    </button>
                                 </li>
                                 <li className="pl-[33px]">
-                                    <Link to="/Nosotros"><span className="text-[20px]">Nosotros</span></Link>
+                                    <button>
+                                        <Link activeClass="active"
+                                            to="Soporte"
+                                            spy={true}
+                                            smooth={true}
+                                            offset={-100}
+                                            duration={500} >
+                                            <span className="text-[20px]">Soporte</span>
+                                        </Link>
+                                    </button>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                 </div >
                 <div>
-                    <Link to="/LoginPage">
-                        <button>
-                            <div className="flex justify-center items-center bg-[#5a7834] w-[64px] h-[64px] rounded-[20px] ml-5">
-                                <IconUserFilled width={48} height={48} color='white' />
-                            </div>
+                    <a href="/LoginPage">
+                        <button className="flex justify-center items-center bg-[#709441] w-[80px] h-[80px] rounded-[20px] ml-10">
+                            <IconUserFilled width={48} height={48} color='white' />
                         </button>
-                    </Link>
+                    </a>
                 </div>
                 <div>
-                    <button>
-                        <div className="flex justify-center items-center bg-[#5a7834] w-[64px] h-[64px] rounded-[20px] ml-5">
+                    <a >
+                        <button className="flex justify-center items-center bg-[#709441] w-[80px] h-[80px] rounded-[20px] ml-5">
                             <IconSunFilled width={48} height={48} color='white' />
-                        </div>
-                    </button>
+                        </button>
+                    </a>
+
                 </div>
             </div >
         </>
