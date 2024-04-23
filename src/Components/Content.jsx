@@ -1,3 +1,5 @@
+import Gato from '../assets/img/gato-siames.png'
+
 const Content = () => {
     return (
         <>
@@ -19,7 +21,7 @@ const Content = () => {
                     </div>
                 </div>
                 <div className="flex flex-col justify-center items-center pl-72">
-                    <img className="w-[512px] h-[512px]" src="./public/gato-siames.png" alt="image-gato-siames" />
+                    <img className="w-[512px] h-[512px]" src={Gato} alt="image-gato-siames" />
                 </div>
             </div>
         </>
