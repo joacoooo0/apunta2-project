@@ -16,8 +16,8 @@ const Content = () => {
                             Compra apuntes de diferentes personas y universidades, y vende y gana una comisión por cada venta.
                         </h4>
                     </div>
-                    <div className="mt-4 flex justify-center items-center bg-[#5a7e32] w-[200px] h-[64px] rounded-[20px] hover:shadow-lg">
-                        <button className="text-white text-[25px] "> Ver Apuntes</button>
+                    <div className="mt-4 flex justify-center items-center bg-[#759f43] w-[200px] h-[64px] rounded-[20px] hover:shadow-lg">
+                        <button className="text-white font-semibold text-[25px] "> Ver Apuntes</button>
                     </div>
                 </div>
                 <div className="flex flex-col justify-center items-center pl-72">

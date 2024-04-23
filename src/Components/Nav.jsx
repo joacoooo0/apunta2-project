@@ -56,7 +56,7 @@ const Nav = () => {
                                             smooth={true}
                                             offset={-100}
                                             duration={500} className=''>
-                                            <span className="text-[20px] hover:underline">Inicio</span>
+                                            <span className="text-[20px] ">Inicio</span>
                                         </Link>
                                     </button>
                                 </li>
