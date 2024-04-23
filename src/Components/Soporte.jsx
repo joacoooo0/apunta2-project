@@ -1,3 +1,5 @@
+import Friend from '../assets/img/mejor-amigo.png'
+
 const Soporte = () => {
     return (
         <>
@@ -15,7 +17,7 @@ const Soporte = () => {
                         </div>
 
                     </div>
-                    <img className="w-[600px]" src="./public/mejor-amigo.png" alt="" />
+                    <img className="w-[600px]" src={Friend} alt="mejor-amigo" />
 
                 </div>
 

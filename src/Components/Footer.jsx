@@ -1,4 +1,5 @@
 import { IconBookmarksFilled } from '@tabler/icons-react';
+import Sonriente from '../assets/img/sonriente.png'
 
 const Footer = () => {
     return (
@@ -57,7 +58,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <div>
-                            <img className='w-[200px]' src="./public/sonriente.png" alt="" />
+                            <img className='w-[200px]' src={Sonriente} alt="sonriente" />
                         </div>
                     </div>
 
