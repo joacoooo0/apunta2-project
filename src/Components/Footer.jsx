@@ -4,7 +4,7 @@ import Sonriente from '../assets/img/sonriente.png'
 const Footer = () => {
     return (
         <>
-            <div className="md:flex h-80 bg-[#19240f] text-white font-gabarito justify-center">
+            <div className="flex h-80 bg-[#19240f] text-white font-gabarito justify-center">
                 <div className="my-10 flex items-center">
                     <div className="pr-20">
                         <ul>

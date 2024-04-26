@@ -12,8 +12,8 @@ import { Link } from 'react-scroll';
 const App = () => {
   return (
     <>
-      <div className="">
-        <button className="my-5 mx-5 bottom-0 right-0 fixed bg-[#759f43] rounded-[15px] w-14 h-14 md:grid items-center justify-center dark:bg-[#a6c977]">
+      <div className="overflow-x-hidden ">
+        <button className="my-5 mx-5 bottom-0 right-0 fixed bg-[#759f43] rounded-[15px] w-14 h-14 grid items-center justify-center dark:bg-[#a6c977]">
           <Link activeClass="active"
             to="/"
             spy={true}
@@ -24,11 +24,9 @@ const App = () => {
           </Link>
         </button>
         <div className="bg-[#cfe2b4] dark:bg-[#1a1a1a]">
-          <div id="/" className="">
+          <div id="/" className="w-full">
             <Nav />
-            <div className="">
-              <Content />
-            </div>
+            <Content />
           </div>
           <div className="bg-[#a6c977] dark:bg-[#5a7e32]">
             <Nosotros />
@@ -36,8 +34,9 @@ const App = () => {
           <div className="bg-[#a6c977] dark:bg-[#5a7e32]">
             <Soporte />
           </div>
+
         </div>
-        <footer>
+        <footer >
           <Footer />
         </footer>
       </div>
