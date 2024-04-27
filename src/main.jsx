@@ -6,10 +6,7 @@ import './index.css'
 import Nosotros from './Components/Nosotros.jsx'
 import Soporte from './Components/Soporte.jsx'
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import LoginPage from './Crud/LoginPage.jsx'
 import RegisterPage from './Crud/RegisterPage.jsx'
@@ -29,7 +26,7 @@ const router = createBrowserRouter([
     element: <Soporte />
   },
   {
-    path: "/LoginPage",
+    path: "LoginPage",
     element: <LoginPage />
   },
   {

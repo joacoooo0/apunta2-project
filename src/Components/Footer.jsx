@@ -48,7 +48,7 @@ const Footer = () => {
                     </div>
 
                     <div className="ml-52 flex justify-center items-center">
-                        <div className='md:block'>
+                        <div className='block'>
                             <div className="md:flex mb-7">
                                 <span className='pr-3'> <IconBookmarksFilled width={48} height={48} color='white' /></span>
                                 <h2 className="text-[34px]">ApuntaDos</h2>

@@ -12,7 +12,7 @@ import { Link } from 'react-scroll';
 const App = () => {
   return (
     <>
-      <div className="overflow-x-hidden ">
+      <div className="overflow-x-hidden">
         <button className="my-5 mx-5 bottom-0 right-0 fixed bg-[#759f43] rounded-[15px] w-14 h-14 grid items-center justify-center dark:bg-[#a6c977]">
           <Link activeClass="active"
             to="/"
