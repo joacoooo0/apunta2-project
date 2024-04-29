@@ -25,8 +25,8 @@ const Nav = () => {
     };
 
     return (
-        <div className="text-white flex items-center sm:justify-between justify-center px-12 md:px-24 py-10">
-            <div className="font-gabarito w-full flex justify-between items-center">
+        <div className="text-white flex justify-center px-12 md:px-24 py-10">
+            <div className="font-gabarito w-full flex md:justify-between items-center">
                 <div className='flex items-center sm:mr-5'>
                     <span className='pr-2'>
                         <IconBookmarksFilled width={35} height={35} color='#a6c977' />
@@ -79,7 +79,7 @@ const Nav = () => {
                 </nav>
             </div>
 
-            <div className='flex'>
+            <div>
                 <div>
                     <button className="flex justify-center items-center bg-[#759f43] w-[60px] h-[60px] rounded-[15px] md:w-[60px] md:h-[60px] md:rounded-[20px] ml-5 hover:shadow-lg dark:shadow-[#a6c977] md:hidden" onClick={toggleMenu}>
                         <IconBaselineDensityMedium width={35} height={35} color='white' />
