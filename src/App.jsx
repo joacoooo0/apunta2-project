@@ -24,7 +24,7 @@ const App = () => {
           </Link>
         </button>
         <div className="bg-[#cfe2b4] dark:bg-[#1a1a1a]">
-          <div id="/" className="w-full">
+          <div id="/" className="">
             <Nav />
             <Content />
           </div>
