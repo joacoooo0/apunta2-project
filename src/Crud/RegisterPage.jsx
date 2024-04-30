@@ -3,7 +3,7 @@ import Gato from '../assets/img/gato-siames.png'
 const RegisterPage = () => {
     return (
         <>
-            <div className="flex justify-center items-center w-screen h-screen bg-[#759f43] text-[#19240f] font-gabarito">
+            <div className="overflow-x-hidden flex justify-center items-center w-screen h-screen bg-[#759f43] text-[#19240f] font-gabarito">
                 <a href="/">
                     <button type="button" className="my-5 mx-5 top-0 left-0 fixed text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-14 h-14 md:grid items-center justify-center dark:bg-[#a6c977]">
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">

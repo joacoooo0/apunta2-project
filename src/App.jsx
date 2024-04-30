@@ -31,7 +31,7 @@ const App = () => {
           <div className="bg-[#a6c977] dark:bg-[#5a7e32]">
             <Nosotros />
           </div>
-          <div id="Soporte" className="bg-[#a6c977] dark:bg-[#5a7e32]">
+          <div className="bg-[#a6c977] dark:bg-[#5a7e32]">
             <Soporte />
           </div>
 
