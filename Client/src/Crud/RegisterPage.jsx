@@ -1,9 +1,6 @@
 import Gato from '../assets/img/gato-siames.png'
 
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-
-import Axios from 'axios'
 
 const RegisterPage = () => {
 
