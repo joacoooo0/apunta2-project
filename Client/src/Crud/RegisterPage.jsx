@@ -1,6 +1,13 @@
 import Gato from '../assets/img/gato-siames.png'
 
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+
+import Axios from 'axios'
+
 const RegisterPage = () => {
+
+
     return (
         <>
             <div className="overflow-x-hidden flex justify-center items-center w-screen h-screen bg-[#759f43] text-[#19240f] font-gabarito">
@@ -12,7 +19,7 @@ const RegisterPage = () => {
                         <span class="sr-only">Icon description</span>
                     </button>
                 </a>
-                <div className="flex-col items-center md:w-[500px] w-[300px] h-[700px] bg-[#cfe2b4] rounded-[20px] md:px-20 px-8 py-20">
+                <div className="flex flex-col justify-center md:w-[500px] w-[300px] h-[750px] bg-[#cfe2b4] rounded-[20px] md:px-20 px-8 py-20">
                     <div className='flex items-center justify-center'>
                         <img className='w-[150px] h-[150px]' src={Gato} alt="" />
                     </div>
@@ -21,10 +28,16 @@ const RegisterPage = () => {
                         <p className='font-normal'>Regístrate para poder acceder a los diversos apuntes y resúmenes que tenemos para ti</p>
                     </div>
                     <div class="mb-3 mt-6">
-                        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo electronico" required />
+                        <input
+                            type="email" id="email" class="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo electronico" required />
+                    </div>
+                    <div class="mb-3">
+                        <input
+                            type="password" id="email" class="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Contraseña" required />
                     </div>
                     <div class="">
-                        <input type="password" id="email" class="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Contraseña" required />
+                        <input
+                            type="username" id="email" class="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Username" required />
                     </div>
                     <div className='mt-3'>
                         <button type="button" class="w-full text-white bg-[#759f43] hover:bg-[#6d943f] focus:ring-4 focus:ring-blue-300 font-medium rounded-[15px] text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Registrar</button>

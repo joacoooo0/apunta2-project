@@ -13,7 +13,7 @@ const LoginPage = () => {
                         <span class="sr-only">Icon description</span>
                     </button>
                 </a>
-                <div className="flex-col items-center md:w-[500px] w-[300px] h-[700px] bg-[#cfe2b4] rounded-[20px] md:px-20 px-8 py-20">
+                <div className="flex flex-col justify-center md:w-[500px] w-[300px] h-[750px] bg-[#cfe2b4] rounded-[20px] md:px-20 px-8 py-20">
                     <div className='flex items-center justify-center'>
                         <img className='w-[150px] h-[150px]' src={Gato} alt="" />
                     </div>
@@ -50,10 +50,10 @@ const LoginPage = () => {
                         </button>
                     </div>
                     <div className='block items-center justify-center text-pretty'>
-                        <button className='font-bold text-[15px]'>
+                        <button className='font-bold text-[15px] mt-3'>
                             ¿Olvidaste tu contraseña?
                         </button>
-                        <div className='flex items-center'>
+                        <div className='flex items-center mt-3'>
                             <p className='text-[15px]'>¿Aún no tienes cuenta?</p>
                             <a href="/RegisterPage">
                                 <button className='text-left font-bold ml-2 text-[15px]'>
