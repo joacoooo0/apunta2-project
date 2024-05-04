@@ -38,14 +38,14 @@ const Nav = () => {
                         <li className='pl-[33px]'>
                             <button>
                                 <Link onClick={() => setShowNav(false)} activeClass="active" to="Nosotros" spy={true} smooth={true} offset={-100} duration={500}>
-                                    <span className="text-[20px]">Quiero vender</span>
+                                    <span className="text-[20px] hover:font-semibold hover:text-[21px]">Quiero vender</span>
                                 </Link>
                             </button>
                         </li>
                         <li className="pl-[33px]">
                             <button>
                                 <Link onClick={() => setShowNav(false)} activeClass="active" to="Soporte" spy={true} smooth={true} offset={-100} duration={500}>
-                                    <span className="text-[20px]">Quiero comprar</span>
+                                    <span className="text-[20px] hover:font-semibold hover:text-[21px]">Quiero comprar</span>
                                 </Link>
                             </button>
                         </li>
@@ -85,40 +85,42 @@ const Nav = () => {
 
             </div>
 
-            <div className="flex justify-center font-gabarito relative">
+            <div className="flex justify-center items-center font-gabarito relative">
                 <button className="flex justify-center items-center bg-[#759f43] rounded-[15px] w-[50px] h-[50px] md:rounded-[15px] ml-5 hover:shadow-lg dark:shadow-[#a6c977] lg:hidden" onClick={toggleNav}>
                     <IconBaselineDensityMedium width={20} height={20} color='white' />
                 </button>
                 {showNav && (
-                    <div className="absolute top-[65px] right-0  w-[150px] bg-[#759f43] p-3 rounded-[20px] shadow-lg z-10 transition-all duration-500">
-                        <ul>
-                            <li className=''>
+                    <div className="absolute top-[65px] right-0 w-[170px] bg-[#759f43] p-3 rounded-[20px] shadow-lg z-10 ">
+                        <ul className='flex flex-col justify-center items-center'>
+                            <li className='bg-[#19240f] rounded-[15px] w-[130px] h-[35px] mb-2 flex justify-center'>
                                 <button>
                                     <Link onClick={() => setShowNav(false)} activeClass="active" to="Nosotros" spy={true} smooth={true} offset={-100} duration={500}>
                                         <span className="text-[16px]">Quiero vender</span>
                                     </Link>
                                 </button>
                             </li>
-                            <li className="">
-                                <button>
-                                    <Link onClick={() => setShowNav(false)} activeClass="active" to="Soporte" spy={true} smooth={true} offset={-100} duration={500}>
-                                        <span className="text-[16px]">Quiero comprar</span>
-                                    </Link>
-                                </button>
+                            <li className="bg-[#19240f] rounded-[15px] w-[130px] h-[35px] mb-2 flex justify-center items-center">
+                                <a href="flex justify-center items-center">
+                                    <button className="flex justify-center items-center">
+                                        <Link onClick={() => setShowNav(false)} activeClass="active" to="Soporte" spy={true} smooth={true} offset={-100} duration={500}>
+                                            <span className="text-[16px]">Quiero comprar</span>
+                                        </Link>
+                                    </button>
+                                </a>
                             </li>
-                            <li className="">
-                                <a href="/LoginPage">
-                                    <button className="flex justify-center items-center bg-[#759f43] w-[10px] h-[10px] rounded-[15px] md:w-[120px] md:h-[50px] sm:rounded-[15px] lg:ml-10 hover:shadow-lg dark:shadow-[#a6c977] text-white">
+                            <li className="mb-2">
+                                <a href="/LoginPage" className='flex justify-center items-center'>
+                                    <button className="flex justify-center items-center bg-[#19240f] rounded-[15px] w-[120px] h-[35px] sm:rounded-[15px] lg:ml-10 hover:shadow-lg dark:shadow-[#a6c977] text-white">
                                         <span className='mr-2'>
-                                            <IconUserFilled width={17} height={20} color='white' />
+                                            <IconUserFilled width={17} height={17} color='white' />
                                         </span>
                                         <span className='md:text-[16px]'>Login</span>
                                     </button>
                                 </a>
                             </li>
-                            <li>
-                                <a href="/RegisterPage">
-                                    <button className="flex justify-center items-center bg-[#759f43] w-[40px] h-[40px] rounded-[15px] md:w-[120px] md:h-[50px] sm:rounded-[15px] lg:ml-5 hover:shadow-lg dark:shadow-[#a6c977] text-white">
+                            <li className='mb-2'>
+                                <a href="/RegisterPage" className='flex justify-center items-center'>
+                                    <button className="flex justify-center items-center bg-[#19240f] rounded-[15px] w-[120px] h-[35px] sm:rounded-[15px] lg:ml-5 hover:shadow-lg dark:shadow-[#a6c977] text-white">
                                         <span className='mr-2'>
                                             <IconUserFilled width={16} height={16} color='white' />
                                         </span>
@@ -126,10 +128,18 @@ const Nav = () => {
                                     </button>
                                 </a>
                             </li>
+                            <li>
+                                <div>
+                                    <button className="flex justify-center items-center bg-[#19240f] rounded-[15px] w-[90px] h-[35px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977]" onClick={handleChangeTheme}>
+                                        <IconSunFilled width={16} height={16} color='white' />
+                                    </button>
+                                </div>
+                            </li>
                         </ul>
                     </div>
-                )}
-            </div>
+                )
+                }
+            </div >
 
 
 
