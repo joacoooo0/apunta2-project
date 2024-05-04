@@ -10,6 +10,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import LoginPage from './Crud/LoginPage.jsx'
 import RegisterPage from './Crud/RegisterPage.jsx'
+import Dashboard from "./Components/Dashboard.jsx";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/RegisterPage",
     element: <RegisterPage />
+  },
+  {
+    path: "/Dashboard",
+    element: <Dashboard />
   },
 ]);
 

@@ -1,5 +1,3 @@
-
-
 import Nav from "./Components/Nav"
 import Content from "./Components/Content"
 import Soporte from "./Components/Soporte"

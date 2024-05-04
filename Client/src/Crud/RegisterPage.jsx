@@ -1,7 +1,5 @@
 import Gato from '../assets/img/gato-siames.png'
 
-import React, { useState } from 'react'
-
 const RegisterPage = () => {
 
 

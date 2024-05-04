@@ -1,5 +1,6 @@
 import Gato from '../assets/img/gato-siames.png'
 
+
 const LoginPage = () => {
     return (
         <>
