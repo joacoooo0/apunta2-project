@@ -319,7 +319,7 @@ const Dashboard = () => {
                     </div>
                 </main>
 
-                <footer class="w-full bg-white text-right p-4">
+                <footer class="w-full bg-black text-right text-white p-4">
                     Built by <a target="_blank" href="https://davidgrzyb.com" class="underline">David Grzyb</a>.
                 </footer>
             </div>
