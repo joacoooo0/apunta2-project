@@ -2,7 +2,7 @@ import Estrella from '../assets/img/estrella.png'
 
 const Nosotros = () => {
     return (
-        <div id="Nosotros" className="text-[#272727] font-gabarito py-24 justify-center">
+        <div id="Nosotros" className="overflow-x-hidden text-[#272727] font-gabarito py-24 justify-center bg-[#a6c977] dark:bg-[#5a7e32]">
             <div className="flex justify-center  sm:px-24 px-[26px]">
                 <div className="bg-[#cfe2b4] w-full h-full rounded-3xl text-center">
                     <div className="px-7 py-7">

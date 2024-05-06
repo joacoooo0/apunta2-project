@@ -66,7 +66,7 @@ const Footer = () => {
 
 
                 </div>
-                <div class="block divide-y lg:justify-between w-auto divide-[#708770] pt-16 pb-32 pl-16 pr-16">
+                <div className="block divide-y lg:justify-between w-auto divide-[#708770] pt-16 pb-32 pl-16 pr-16">
                     <div></div>
                     <div className='lg:flex block lg:justify-between items-center pt-10'>
                         <p className='flex justify-center'>

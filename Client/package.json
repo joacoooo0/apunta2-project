@@ -13,8 +13,10 @@
     "@fontsource/paytone-one": "^5.0.20",
     "@tabler/icons-react": "^3.2.0",
     "aos": "^2.3.4",
+    "axios": "^1.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.4",
     "react-icons": "^5.1.0",
     "react-router-dom": "^6.22.3",
     "react-scroll": "^1.9.0"

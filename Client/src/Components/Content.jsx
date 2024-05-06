@@ -8,7 +8,7 @@ import Github from '../assets/img/github';
 
 const Content = () => {
     return (
-        <div className="font-gabarito px-12 py-20 md:px-24 md:py-36">
+        <div className="overflow-x-hidden font-gabarito px-12 py-20 md:px-24 md:py-36 bg-[#cfe2b4] dark:bg-[#1a1a1a]">
             <div className="flex flex-col md:flex-row justify-between items-center w-full">
                 <div className='flex flex-col justify-center w-full'>
                     <div className='sm:flex block'>
