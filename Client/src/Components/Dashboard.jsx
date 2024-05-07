@@ -8,8 +8,12 @@ import { IconCash } from '@tabler/icons-react';
 import { IconSettings } from '@tabler/icons-react';
 import Github from '../assets/img/github.jsx';
 import { IconHelp } from '@tabler/icons-react';
+import { useAuth } from '../Context/AuthContext.jsx';
 
-const Dashboard = () => {
+function Dashboard() {
+
+    const { logout, user } = useAuth()
+
     return (
         <body className='font-gabarito flex'>
             <aside className="overflow-x-hidden relative bg-sidebar h-screen w-80 hidden sm:block shadow-xl bg-sidebar bg-[#759f43] dark:bg-[#1a1a1a]">
@@ -22,35 +26,42 @@ const Dashboard = () => {
                     </span>
                 </div>
                 <nav className="text-white text-[18px] font-semibold p-6 space-y-3">
-                    <a href="/Dashboard" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <a href="/dashboard" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconHome2 stroke={2} />
                         <i className="fas fa-tachometer-alt "></i>
                         Panel principal
                     </a>
-                    <a href="/Apuntes" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <a href="/notes" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconNotebook stroke={2} />
                         <i className="fas fa-sticky-note"></i>
                         Apuntes
                     </a>
-                    <a href="/Balance" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <a href="/dashboardbalance" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconCash stroke={2} />
                         <i className="fas fa-table "></i>
                         Balance
                     </a>
                 </nav>
-                <nav className='flex flex-col justify-center p-6 font-semibold mt-[400px] space-y-3 text-[18px]'>
+                <nav className='flex flex-col justify-center p-6 font-semibold mt-[340px] space-y-3 text-[18px]'>
+                    <h2 className='font-semibold text-[16px] text-[#ffffff] dark:text-[#19240f]'>Bienvenido {user.username}</h2>
                     <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700 my-5" />
                     <a href="https://github.com/Panitou/apunta2-project" target='_blank' className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <Github className="w-5 h-5" color={'white'} />
                         <i className=""></i>
                         GitHub
                     </a>
-                    <a href="/Apuntes" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <a href="" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconSettings stroke={2} />
                         <i className=""></i>
                         Ajustes
                     </a>
-                    <a href="/Balance" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <Link to='/' onClick={() => {
+                        logout()
+                    }} className='hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2'>
+                        <IconHelp stroke={2} />
+                        Cerrar Sesión
+                    </Link>
+                    <a href="" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconHelp stroke={2} />
                         <i className=""></i>
                         Soporte

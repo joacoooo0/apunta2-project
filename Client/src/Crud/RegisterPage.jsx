@@ -126,7 +126,7 @@ function RegisterPage() {
                     <div className='block items-center justify-center text-pretty mt-3'>
                         <div className='flex items-center'>
                             <p className='text-[15px]'>¿Ya tienes cuenta?</p>
-                            <a href="/LoginPage">
+                            <a href="/login">
                                 <button className='text-left font-bold ml-2 text-[15px]'>
                                     Login
                                 </button>

@@ -1,7 +1,25 @@
+import { useEffect } from 'react'
+import { useAuth } from '../Context/AuthContext'
 import Gato from '../assets/img/gato-siames.png'
 
+import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
+
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    const { signin, errors: signinErrors, isAuthenticated } = useAuth()
+    const navigate = useNavigate()
+    const onSubmit = handleSubmit((data) => {
+        signin(data)
+    })
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/notes')
+        }
+    }, [isAuthenticated])
+
     return (
         <>
 
@@ -22,15 +40,37 @@ const LoginPage = () => {
                         <h3 className='font-semibold text-[20px]'>Login</h3>
                         <p className='font-normal'>Inicia sesión para poder acceder a los diversos apuntes y resúmenes que tenemos para ti</p>
                     </div>
-                    <div className="mb-3 mt-6">
-                        <input type="email" id="email" className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Correo electronico" required />
+                    {signinErrors.map((error, i) => (
+                        <div className='bg-red-500 p-2 text-white' key={i}>
+                            {error}
+                        </div>
+                    ))}
+                    <div>
+                        <form onSubmit={onSubmit}>
+                            {
+                                errors.email && <p className='text-red-500 text-[13px]'>Correo es requerido</p>
+                            }
+                            <input
+                                type="email"
+                                {...register('email', { required: true })}
+                                autoComplete='current-email'
+                                className="mb-3 mt-6 bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Correo electronico" />
+                            {
+                                errors.password && <p className='text-red-500 text-[13px]'>Contraseña es requerido</p>
+                            }
+                            <input
+                                type="password"
+                                {...register('password', { required: true })}
+                                autoComplete="current-password"
+                                className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Contraseña"
+                                required
+                            />
+                            <button type="submit" className=" mt-3 w-full text-white bg-[#759f43] hover:bg-[#6d943f] focus:ring-4 focus:ring-blue-300 font-medium rounded-[15px] text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Ingresar</button>
+                        </form>
                     </div>
-                    <div className="">
-                        <input type="password" id="email" className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Contraseña" required />
-                    </div>
-                    <div className='mt-3'>
-                        <button type="button" className="w-full text-white bg-[#759f43] hover:bg-[#6d943f] focus:ring-4 focus:ring-blue-300 font-medium rounded-[15px] text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Ingresar</button>
-                    </div>
+
                     <div className="inline-flex items-center justify-center w-full">
                         <hr className="w-full h-px my-3 bg-[#19240f] border-0 dark:bg-gray-700" />
                         <span className="text-[13px] px-3 font-medium text-gray-900 dark:text-white dark:bg-gray-900">O</span>
@@ -56,7 +96,7 @@ const LoginPage = () => {
                         </button>
                         <div className='flex items-center mt-3'>
                             <p className='text-[15px]'>¿Aún no tienes cuenta?</p>
-                            <a href="/RegisterPage">
+                            <a href="/register">
                                 <button className='text-left font-bold ml-2 text-[15px]'>
                                     Regístrate
                                 </button>

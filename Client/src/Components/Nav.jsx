@@ -4,8 +4,13 @@ import { IconBookmarksFilled } from '@tabler/icons-react';
 import { IconBaselineDensityMedium } from '@tabler/icons-react';
 import { useState, useEffect } from "react"
 import { Link } from 'react-scroll';
+import { useAuth } from '../Context/AuthContext';
 
 const Nav = () => {
+
+    const { isAuthenticated } = useAuth()
+
+
     const [theme, setTheme] = useState(() => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
     const [showNav, setShowNav] = useState(false);
 
@@ -90,53 +95,86 @@ const Nav = () => {
                 <button className="flex justify-center items-center bg-[#759f43] rounded-[15px] w-[50px] h-[50px] md:rounded-[15px] ml-5 hover:shadow-lg dark:shadow-[#a6c977] lg:hidden" onClick={toggleNav}>
                     <IconBaselineDensityMedium width={20} height={20} color='white' />
                 </button>
-                {showNav && (
-                    <div className="absolute top-[65px] right-0 w-[170px] bg-[#759f43] p-3 rounded-[20px] shadow-lg z-10 ">
-                        <ul className='flex flex-col justify-center items-center'>
-                            <li className='bg-[#2c3f1a] rounded-[15px] w-[130px] h-[35px] mb-2 flex justify-center items-center'>
-                                <Link onClick={() => setShowNav(false)} activeClass="active" to="Nosotros" spy={true} smooth={true} offset={-100} duration={500}>
-                                    <span className="text-[16px]">Quiero vender</span>
-                                </Link>
-                            </li>
-                            <li className="bg-[#2c3f1a] rounded-[15px] w-[130px] h-[35px] mb-2 flex justify-center items-center">
-                                <Link onClick={() => setShowNav(false)} activeClass="active" to="Soporte" spy={true} smooth={true} offset={-100} duration={500}>
-                                    <span className="text-[16px]">Quiero comprar</span>
-                                </Link>
-                            </li>
-                            <li className="mb-2">
-                                <a href="/login" className='flex justify-center items-center'>
-                                    <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[120px] h-[35px] sm:rounded-[15px] lg:ml-10 hover:shadow-lg dark:shadow-[#a6c977] text-white">
-                                        <span className='mr-2'>
-                                            <IconUserFilled width={17} height={17} color='white' />
-                                        </span>
-                                        <span className='md:text-[16px]'>Login</span>
-                                    </button>
-                                </a>
-                            </li>
-                            <li className='mb-2'>
-                                <a href="/register" className='flex justify-center items-center'>
-                                    <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[120px] h-[35px] sm:rounded-[15px] lg:ml-5 hover:shadow-lg dark:shadow-[#a6c977] text-white">
-                                        <span className='mr-2'>
-                                            <IconUserFilled width={16} height={16} color='white' />
-                                        </span>
-                                        <span className='md:text-[16px]'>Register</span>
-                                    </button>
-                                </a>
-                            </li>
-                            <li>
-                                <div>
-                                    <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[90px] h-[35px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977]" onClick={handleChangeTheme}>
-                                        <IconSunFilled width={16} height={16} color='white' />
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                {isAuthenticated ? (
+                    showNav && (
+                        <div className="absolute top-[65px] right-0 w-[170px] bg-[#759f43] p-3 rounded-[20px] shadow-lg z-10 ">
+                            <ul className='flex flex-col justify-center items-center'>
+                                <li className='bg-[#2c3f1a] rounded-[15px] w-[130px] h-[35px] mb-2 flex justify-center items-center'>
+                                    <Link onClick={() => setShowNav(false)} activeClass="active" to="Nosotros" spy={true} smooth={true} offset={-100} duration={500}>
+                                        <span className="text-[16px]">Quiero vender</span>
+                                    </Link>
+                                </li>
+                                <li className="bg-[#2c3f1a] rounded-[15px] w-[130px] h-[35px] mb-2 flex justify-center items-center">
+                                    <Link onClick={() => setShowNav(false)} activeClass="active" to="Soporte" spy={true} smooth={true} offset={-100} duration={500}>
+                                        <span className="text-[16px]">Quiero comprar</span>
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <a href="/dashboard" className='flex justify-center items-center'>
+                                        <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[120px] h-[35px] sm:rounded-[15px] lg:ml-10 hover:shadow-lg dark:shadow-[#a6c977] text-white">
+                                            <span className='mr-2'>
+                                                <IconUserFilled width={17} height={17} color='white' />
+                                            </span>
+                                            <span className='md:text-[16px]'>Dashboard</span>
+                                        </button>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div>
+                                        <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[90px] h-[35px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977]" onClick={handleChangeTheme}>
+                                            <IconSunFilled width={16} height={16} color='white' />
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    )
+                ) : (
+                    showNav && (
+                        <div className="absolute top-[65px] right-0 w-[170px] bg-[#759f43] p-3 rounded-[20px] shadow-lg z-10 ">
+                            <ul className='flex flex-col justify-center items-center'>
+                                <li className='bg-[#2c3f1a] rounded-[15px] w-[130px] h-[35px] mb-2 flex justify-center items-center'>
+                                    <Link onClick={() => setShowNav(false)} activeClass="active" to="Nosotros" spy={true} smooth={true} offset={-100} duration={500}>
+                                        <span className="text-[16px]">Quiero vender</span>
+                                    </Link>
+                                </li>
+                                <li className="bg-[#2c3f1a] rounded-[15px] w-[130px] h-[35px] mb-2 flex justify-center items-center">
+                                    <Link onClick={() => setShowNav(false)} activeClass="active" to="Soporte" spy={true} smooth={true} offset={-100} duration={500}>
+                                        <span className="text-[16px]">Quiero comprar</span>
+                                    </Link>
+                                </li>
+                                <li className="mb-2">
+                                    <a href="/login" className='flex justify-center items-center'>
+                                        <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[120px] h-[35px] sm:rounded-[15px] lg:ml-10 hover:shadow-lg dark:shadow-[#a6c977] text-white">
+                                            <span className='mr-2'>
+                                                <IconUserFilled width={17} height={17} color='white' />
+                                            </span>
+                                            <span className='md:text-[16px]'>Login</span>
+                                        </button>
+                                    </a>
+                                </li>
+                                <li className='mb-2'>
+                                    <a href="/register" className='flex justify-center items-center'>
+                                        <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[120px] h-[35px] sm:rounded-[15px] lg:ml-5 hover:shadow-lg dark:shadow-[#a6c977] text-white">
+                                            <span className='mr-2'>
+                                                <IconUserFilled width={16} height={16} color='white' />
+                                            </span>
+                                            <span className='md:text-[16px]'>Register</span>
+                                        </button>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div>
+                                        <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[90px] h-[35px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977]" onClick={handleChangeTheme}>
+                                            <IconSunFilled width={16} height={16} color='white' />
+                                        </button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    )
                 )}
             </div>
-
-
-
         </div >
     );
 }
