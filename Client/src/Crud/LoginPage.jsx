@@ -40,7 +40,7 @@ const LoginPage = () => {
                         <h3 className='font-semibold text-[20px]'>Login</h3>
                         <p className='font-normal'>Inicia sesión para poder acceder a los diversos apuntes y resúmenes que tenemos para ti</p>
                     </div>
-                    {signinErrors.map((error, i) => (
+                    {signinErrors && signinErrors.map && signinErrors.map((error, i) => (
                         <div className='bg-red-500 p-2 text-white' key={i}>
                             {error}
                         </div>
