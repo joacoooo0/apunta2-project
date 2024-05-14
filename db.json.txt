@@ -1,0 +1,14 @@
+{
+    nombres: {nombres},
+    apellidos: {apellidos},
+    edad: {edad}
+    username: {username},
+    email: {email},
+    password: {password},
+    createdAt: 0.0.0,
+    updatedAt: 0.0.0,
+    mode: {buy, sell},
+    carrera: {carrera},
+    ciclo: {1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+
+}

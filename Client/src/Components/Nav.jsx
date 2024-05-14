@@ -6,10 +6,12 @@ import { useState, useEffect } from "react"
 import { Link } from 'react-scroll';
 import { useAuth } from '../Context/AuthContext';
 
+import { IconHelp } from '@tabler/icons-react';
+
 const Nav = () => {
 
     const { isAuthenticated } = useAuth()
-
+    const { logout } = useAuth()
 
     const [theme, setTheme] = useState(() => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
     const [showNav, setShowNav] = useState(false);
@@ -99,19 +101,16 @@ const Nav = () => {
                     showNav && (
                         <div className="absolute top-[65px] right-0 w-[170px] bg-[#759f43] p-3 rounded-[20px] shadow-lg z-10 ">
                             <ul className='flex flex-col justify-center items-center'>
-                                <li className='bg-[#2c3f1a] rounded-[15px] w-[130px] h-[35px] mb-2 flex justify-center items-center'>
-                                    <Link onClick={() => setShowNav(false)} activeClass="active" to="Nosotros" spy={true} smooth={true} offset={-100} duration={500}>
-                                        <span className="text-[16px]">Quiero vender</span>
-                                    </Link>
-                                </li>
-                                <li className="bg-[#2c3f1a] rounded-[15px] w-[130px] h-[35px] mb-2 flex justify-center items-center">
-                                    <Link onClick={() => setShowNav(false)} activeClass="active" to="Soporte" spy={true} smooth={true} offset={-100} duration={500}>
-                                        <span className="text-[16px]">Quiero comprar</span>
-                                    </Link>
+                                <li>
+                                    <div>
+                                        <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[135px] h-[35px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977] mb-2" onClick={handleChangeTheme}>
+                                            <IconSunFilled width={16} height={16} color='white' />
+                                        </button>
+                                    </div>
                                 </li>
                                 <li className="mb-2">
                                     <a href="/dashboard" className='flex justify-center items-center'>
-                                        <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[120px] h-[35px] sm:rounded-[15px] lg:ml-10 hover:shadow-lg dark:shadow-[#a6c977] text-white">
+                                        <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[135px] h-[35px] sm:rounded-[15px] lg:ml-10 hover:shadow-lg dark:shadow-[#a6c977] text-white">
                                             <span className='mr-2'>
                                                 <IconUserFilled width={17} height={17} color='white' />
                                             </span>
@@ -120,11 +119,12 @@ const Nav = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <div>
-                                        <button className="flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[90px] h-[35px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977]" onClick={handleChangeTheme}>
-                                            <IconSunFilled width={16} height={16} color='white' />
-                                        </button>
-                                    </div>
+                                    <Link to='/' onClick={() => {
+                                        logout()
+                                    }} className='flex justify-center items-center bg-[#2c3f1a] rounded-[15px] w-[135px] h-[40px] sm:rounded-[15px] lg:ml-10 hover:shadow-lg dark:shadow-[#a6c977] text-white mb-2 p-1'>
+                                        <IconHelp className='mr-1' stroke={2} />
+                                        Cerrar Sesión
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
