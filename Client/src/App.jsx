@@ -62,7 +62,7 @@ function App() {
                 element={<NotePage />}>
               </Route>
               <Route
-                path="/dashboardbalance"
+                path="/balance"
                 element={<DashboardBalance />}>
               </Route>
               <Route

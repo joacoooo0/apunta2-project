@@ -9,9 +9,22 @@ import { IconSettings } from '@tabler/icons-react';
 import Github from '../assets/img/github.jsx';
 import { IconHelp } from '@tabler/icons-react';
 import { useAuth } from '../Context/AuthContext.jsx';
+import { useEffect, useState } from "react";
+import { IconSunFilled } from '@tabler/icons-react';
 
 
 function DashboardBalance() {
+
+    const [theme, setTheme] = useState(() => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+
+    useEffect(() => {
+        document.querySelector("html").classList.toggle("dark", theme === "dark");
+    }, [theme]);
+
+    const handleChangeTheme = () => {
+        setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
+    };
+
 
     const { logout, user } = useAuth()
 
@@ -20,24 +33,24 @@ function DashboardBalance() {
             <aside className="overflow-x-hidden relative bg-sidebar h-screen w-80 hidden sm:block shadow-xl bg-sidebar bg-[#759f43] dark:bg-[#1a1a1a]">
                 <div className="flex items-center justify-center mt-4 mb-2">
                     <span className='pr-2'>
-                        <IconBookmarksFilled width={30} height={30} color='#ffffff' />
+                        <IconBookmarksFilled className='dark:text-[#a6c977] text-white' width={30} height={30} />
                     </span>
-                    <span className=" font-semibold text-[36px] text-[#ffffff] dark:text-[#19240f]">
+                    <span className="font-semibold text-[36px] text-white dark:text-[#a6c977]">
                         <Link activeClass="active" to="/" spy={true} smooth={true} offset={-100} duration={500}>ApuntaDos</Link>
                     </span>
                 </div>
                 <nav className="text-white text-[18px] font-semibold p-6 space-y-3">
-                    <a href="/dashboard" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <a href="/dashboard" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconHome2 stroke={2} />
                         <i className="fas fa-tachometer-alt "></i>
                         Panel principal
                     </a>
-                    <a href="/notes" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <a href="/notes" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconNotebook stroke={2} />
                         <i className="fas fa-sticky-note"></i>
                         Apuntes
                     </a>
-                    <a href="/dashboardbalance" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <a href="/balance" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconCash stroke={2} />
                         <i className="fas fa-table "></i>
                         Balance
@@ -45,25 +58,26 @@ function DashboardBalance() {
 
                 </nav>
                 <nav className='flex flex-col justify-center p-6 font-semibold mt-[340px] space-y-3 text-[18px]'>
-                    <h2 className='font-semibold text-[16px] text-[#ffffff] dark:text-[#19240f]'>Bienvenido {user.username}</h2>
+                    <h2 className='font-semibold text-[16px] text-[#ffffff] dark:text-[#ffffff]'>Bienvenido {user.username}</h2>
                     <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700 my-5" />
-                    <a href="https://github.com/Panitou/apunta2-project" target='_blank' className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <a href="https://github.com/Panitou/apunta2-project" target='_blank' className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <Github className="w-5 h-5" color={'white'} />
                         <i className=""></i>
                         GitHub
                     </a>
-                    <a href="/Apuntes" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <a href="/Apuntes" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconSettings stroke={2} />
                         <i className=""></i>
                         Ajustes
                     </a>
                     <Link to='/' onClick={() => {
                         logout()
-                    }} className='hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2'>
+                    }} className='hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2'>
                         <IconHelp stroke={2} />
+                        <i className=""></i>
                         Cerrar Sesión
                     </Link>
-                    <a href="/Balance" className="hover:bg-[#3d5223] bg-[#475f29] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <a href="/Balance" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconHelp stroke={2} />
                         <i className=""></i>
                         Soporte
@@ -71,13 +85,12 @@ function DashboardBalance() {
                 </nav>
             </aside>
 
-            <div className="w-full h-screen overflow-x-hidden border-t flex flex-col bg-[#cfe2b4]">
-
-
-
-                <footer className="w-full bg-red-400 text-right text-white p-4">
-                    Built by <a target="_blank" href="https://davidgrzyb.com" className="underline">David Grzyb</a>.
-                </footer>
+            <div className="w-full h-screen overflow-x-hidden flex flex-col bg-[#cfe2b4] dark:bg-[#5a7e32]">
+                <div>
+                    <button className="flex justify-center items-center bg-[#759f43] w-[60px] h-[60px] rounded-[15px] md:w-[50px] md:h-[50px] sm:rounded-[15px] ml-5 hover:shadow-lg dark:shadow-[#a6c977]" onClick={handleChangeTheme}>
+                        <IconSunFilled width={20} height={20} color='white' />
+                    </button>
+                </div>
             </div>
 
 

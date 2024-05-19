@@ -16,9 +16,9 @@ const LoginPage = () => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            navigate('/notes')
+            navigate('/dashboard')
         }
-    }, [isAuthenticated])
+    }, [isAuthenticated, navigate])
 
     return (
         <>
