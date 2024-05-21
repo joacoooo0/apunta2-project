@@ -11,6 +11,8 @@ import { IconHelp } from '@tabler/icons-react';
 import { useAuth } from '../Context/AuthContext.jsx';
 import { IconSunFilled } from '@tabler/icons-react';
 import { useEffect, useState } from "react";
+import { IconLogout2 } from '@tabler/icons-react';
+import { IconDashboard } from '@tabler/icons-react';
 
 function Dashboard() {
 
@@ -40,9 +42,9 @@ function Dashboard() {
                 </div>
                 <nav className="text-white text-[18px] font-semibold p-6 space-y-3">
                     <a href="/dashboard" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
-                        <IconHome2 stroke={2} />
+                        <IconDashboard stroke={2} />
                         <i className="fas fa-tachometer-alt "></i>
-                        Panel principal
+                        Dashboard
                     </a>
                     <a href="/notes" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
                         <IconNotebook stroke={2} />
@@ -63,22 +65,22 @@ function Dashboard() {
                         <i className=""></i>
                         GitHub
                     </a>
-                    <a href="" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
+                    <button type='button' className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2" disabled>
                         <IconSettings stroke={2} />
                         <i className=""></i>
                         Ajustes
-                    </a>
+                    </button>
                     <Link to='/' onClick={() => {
                         logout()
                     }} className='hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2'>
-                        <IconHelp stroke={2} />
+                        <IconLogout2 stroke={2} />
                         <i className=""></i>
                         Cerrar Sesión
                     </Link>
-                    <a href="" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
-                        <IconHelp stroke={2} />
+                    <a href="/" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2" >
+                        <IconHome2 stroke={2} />
                         <i className=""></i>
-                        Soporte
+                        Pagina Principal
                     </a>
                 </nav>
             </aside>

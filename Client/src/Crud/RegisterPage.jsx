@@ -104,6 +104,8 @@ function RegisterPage() {
                         </form>
                     </div>
 
+
+                    {/*
                     <div className="inline-flex items-center justify-center w-full">
                         <hr className="w-full h-px my-3 bg-[#19240f] border-0 dark:bg-gray-700" />
                         <span className="text-[13px] px-3 font-medium text-gray-900 dark:text-white dark:bg-gray-900">O</span>
@@ -123,6 +125,7 @@ function RegisterPage() {
                             Github
                         </button>
                     </div>
+                    */}
                     <div className='block items-center justify-center text-pretty mt-3'>
                         <div className='flex items-center'>
                             <p className='text-[15px]'>¿Ya tienes cuenta?</p>

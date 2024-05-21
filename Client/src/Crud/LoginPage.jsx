@@ -71,6 +71,8 @@ const LoginPage = () => {
                         </form>
                     </div>
 
+
+                    {/*
                     <div className="inline-flex items-center justify-center w-full">
                         <hr className="w-full h-px my-3 bg-[#19240f] border-0 dark:bg-gray-700" />
                         <span className="text-[13px] px-3 font-medium text-gray-900 dark:text-white dark:bg-gray-900">O</span>
@@ -89,11 +91,12 @@ const LoginPage = () => {
                             </svg>
                             Github
                         </button>
-                    </div>
+                    </div>*/}
                     <div className='block items-center justify-center text-pretty'>
+                        {/*
                         <button className='font-bold text-[15px] mt-3'>
                             ¿Olvidaste tu contraseña?
-                        </button>
+                        </button>*/}
                         <div className='flex items-center mt-3'>
                             <p className='text-[15px]'>¿Aún no tienes cuenta?</p>
                             <a href="/register">
