@@ -1,24 +1,19 @@
-
-import Gato from '../assets/img/gato-siames.png'
-
-import { useForm } from 'react-hook-form'
+import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import { useAuth } from '../Context/AuthContext';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
-    const { register, handleSubmit, formState: {
-        errors
-    } } = useForm();
-    const { signup, isAuthenticated, errors: registerErrors } = useAuth()
-    const navigate = useNavigate()
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { signup, isAuthenticated, errors: registerErrors } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        if (isAuthenticated) navigate('/dashboard')
-    }, [isAuthenticated]);
+        if (isAuthenticated) navigate('/dashboard');
+    }, [isAuthenticated, navigate]);
 
     const onSubmit = handleSubmit(async (values) => {
-        signup(values)
+        await signup(values);
     });
 
     return (
@@ -33,77 +28,144 @@ function RegisterPage() {
                     </button>
                 </a>
                 <div className="flex flex-col justify-center md:w-[500px] w-[300px] h-[750px] bg-[#cfe2b4] rounded-[20px] md:px-20 px-8 py-20">
-                    <div className='flex items-center justify-center'>
-                        <img className='w-[150px] h-[150px]' src={Gato} alt="" />
-                    </div>
-                    <div className='block items-center justify-center text-pretty mb-3'>
-                        <h3 className='font-semibold text-[20px]'>Register</h3>
+                    <div className='block items-center justify-center text-center mb-3'>
+                        <h3 className='font-semibold text-[40px]'>Register</h3>
                         <p className='font-normal'>Regístrate para poder acceder a los diversos apuntes y resúmenes que tenemos para ti</p>
                     </div>
                     <div>
-                        {registerErrors.map((error, i) => (
+                        {Array.isArray(registerErrors) && registerErrors.map((error, i) => (
                             <div className='bg-red-500 p-2 text-white' key={i}>
                                 {error}
                             </div>
                         ))}
                         <form onSubmit={onSubmit}>
-                            {
-                                errors.email && <p className='text-red-500 text-[13px]'>Correo es requerido</p>
-                            }
-                            <input
-                                type="email"
-                                {...register("email", { required: true })}
-                                autoComplete="current-email"
-                                className="bg-gray-50 border mb-3 mt-1 border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Correo electronico" />
+                            <div className='mb-3 mt-1'>
+                                <input
+                                    type="text"
+                                    {...register("nombres", { required: true })}
+                                    autoComplete="current-nombres"
+                                    className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm  rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Nombres"
+                                />
+                                {errors.nombres && <p className='text-red-500 text-[13px]'>Nombres es requerido</p>}
+                            </div>
+
+                            <div className='mb-3 mt-1'>
+                                <input
+                                    type="text"
+                                    {...register("apellidos", { required: true })}
+                                    autoComplete="current-apellidos"
+                                    className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm  rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Apellidos"
+                                />
+                                {errors.apellidos && <p className='text-red-500 text-[13px]'>Apellidos es requerido</p>}
+                            </div>
+
+                            <div className="max-w-sm mx-auto mt-1 mb-3">
+                                <select
+                                    {...register("carreraUni", { required: true })}
+                                    className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm mt-1 rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                >
+                                    <option selected="">Elige una carrera</option>
+                                    <option value="Ingenieria de Sistemas">Ingenieria de Sistemas</option>
+                                    <option value="Medicina">Medicina</option>
+                                    <option value="Arquitectura">Arquitectura</option>
+                                    <option value="Diseño Gráfico">Diseño Gráfico</option>
+                                </select>
+                                {errors.carrera && <p className='text-red-500 text-[13px]'>Carrera es requerida</p>}
+                            </div>
+
+                            <section className='sm:flex items-center justify-center sm:space-x-2'>
+                                <div className="w-[150px] mt-1 mb-3">
+                                    <select
+                                        {...register("ciclo", { required: true })}
+                                        className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    >
+                                        <option value="">Ciclo</option>
+                                        <option value="I">1</option>
+                                        <option value="II">2</option>
+                                        <option value="III">3</option>
+                                        <option value="IV">4</option>
+                                        <option value="V">5</option>
+                                        <option value="VI">6</option>
+                                        <option value="VII">7</option>
+                                        <option value="VIII">8</option>
+                                        <option value="IX">9</option>
+                                        <option value="X">10</option>
+                                    </select>
+                                    {errors.ciclo && <p className='text-red-500 text-[13px]'>Falta ciclo</p>}
+                                </div>
+                                <div className='mb-3 mt-1'>
+                                    <input
+                                        type="text"
+                                        {...register("edad", { required: true })}
+                                        autoComplete="current-edad"
+                                        className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm  rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 sm:w-[200px] w-full"
+                                        placeholder="Edad"
+                                    />
+                                    {errors.edad && <p className='text-red-500 text-[13px]'>Edad es requerido</p>}
+                                </div>
+                            </section>
+
+                            <div className='mb-3 mt-1'>
+                                <input
+                                    type="text"
+                                    {...register("username", { required: true })}
+                                    autoComplete="current-username"
+                                    className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm  rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Username"
+                                />
+                                {errors.username && <p className='text-red-500 text-[13px]'>Username es requerido</p>}
+                            </div>
+
+                            <div className='mb-3 mt-1'>
+                                <input
+                                    type="email"
+                                    {...register("email", { required: true })}
+                                    autoComplete="current-email"
+                                    className="bg-gray-50 border  border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Correo Electrónico"
+                                />
+                                {errors.email && <p className='text-red-500 text-[13px]'>Correo Electrónico es requerido</p>}
+                            </div>
 
 
-                            {
-                                errors.password && <p className='text-red-500 text-[13px]'>Contraseña es requerido</p>
-                            }
-                            <input
-                                type="password"
-                                {...register("password", { required: true })}
-                                autoComplete="current-password"
-                                className="bg-gray-50 border border-gray-300 text-[#19240f] mb-3 mt-1 text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Contraseña"
-                            />
-
-
-                            {
-                                errors.username && <p className='text-red-500 text-[13px]'>Username es requerido</p>
-                            }
-                            <input
-                                type="text"
-                                {...register("username", { required: true })}
-                                autoComplete="current-username"
-                                className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm mt-1 rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Username" />
+                            <div className='mb-3 mt-1'>
+                                <input
+                                    type="password"
+                                    {...register("password", { required: true })}
+                                    autoComplete="current-password"
+                                    className="bg-gray-50 border  border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Contraseña"
+                                />
+                                {errors.password && <p className='text-red-500 text-[13px]'>Contraseña es requerida</p>}
+                            </div>
 
                             <div>
-                                <fieldset className='flex justify-center'>
-                                    <div className="flex items-center mt-3">
-                                        <input id="option-1" type="radio" name="countries" value="USA" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-[#cfe2b4] dark:focus:ring-[#759f43] dark:focus:bg-[#759f43] dark:bg-gray-700 dark:border-gray-600" checked />
-                                        <label htmlFor="option-1" className="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            Quiero comprar
+                                <fieldset className='flex items-center justify-center space-x-6'>
+                                    <div className="flex items-center">
+                                        <input id="option-1" type="radio" {...register("mode", { required: true })} value="comprar" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-[#cfe2b4] dark:focus:ring-[#759f43] dark:focus:bg-[#759f43] dark:bg-gray-700 dark:border-gray-600" />
+                                        <label htmlFor="option-1" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            Quiero Comprar
                                         </label>
                                     </div>
-
-                                    <div className="flex items-center mt-3 mx-3">
-                                        <input id="option-2" type="radio" name="countries" value="Germany" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-[#cfe2b4] dark:focus:ring-[#759f43] dark:focus:bg-[#759f43] dark:bg-gray-700 dark:border-gray-600" />
-                                        <label htmlFor="option-2" className="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                                            Quiero vender
+                                    <div className="flex items-center">
+                                        <input id="option-2" type="radio" {...register("mode", { required: true })} value="vender" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-[#cfe2b4] dark:focus:ring-[#759f43] dark:focus:bg-[#759f43] dark:bg-gray-700 dark:border-gray-600" />
+                                        <label htmlFor="option-2" className="block ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            Quiero Vender
                                         </label>
                                     </div>
                                 </fieldset>
+                                {errors.intent && <p className='text-red-500 text-[13px]'>Selecciona una opción</p>}
                             </div>
-                            <button type="submit" className="w-full text-white bg-[#759f43] mt-3 hover:bg-[#6d943f] focus:ring-4 focus:ring-blue-300 font-medium rounded-[15px] text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Registrar</button>
-
+                            <div className='flex items-center justify-center mt-4'>
+                                <button type="submit" className="text-white bg-[#759f43] hover:bg-[#a6c977] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-[#a6c977] dark:hover:bg-[#759f43] dark:focus:ring-[#759f43]">Register</button>
+                            </div>
                         </form>
                     </div>
 
 
-                    <div className="inline-flex items-center justify-center w-full">
+                    {/* <div className="inline-flex items-center justify-center w-full">
                         <hr className="w-full h-px my-3 bg-[#19240f] border-0 dark:bg-gray-700" />
                         <span className="text-[13px] px-3 font-medium text-gray-900 dark:text-white dark:bg-gray-900">O</span>
                         <hr className="w-full h-px my-3 bg-[#19240f] border-0 dark:bg-gray-700" />
@@ -121,8 +183,8 @@ function RegisterPage() {
                             </svg>
                             Github
                         </button>
-                    </div>
-                    <div className='block items-center justify-center text-pretty mt-3'>
+                    </div> */}
+                    <div className='flex items-center justify-center mt-3'>
                         <div className='flex items-center'>
                             <p className='text-[15px]'>¿Ya tienes cuenta?</p>
                             <a href="/login">

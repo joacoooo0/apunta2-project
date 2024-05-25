@@ -6,7 +6,17 @@ import jwt from "jsonwebtoken";
 import { TOKEN_SECRET } from "../config.js";
 
 export const register = async (req, res) => {
-  const { email, password, username } = req.body;
+  const {
+    nombres,
+    apellidos,
+    edad,
+    email,
+    password,
+    username,
+    carreraUni,
+    ciclo,
+    mode,
+  } = req.body;
 
   try {
     const userFound = await User.findOne({ email });
@@ -14,9 +24,15 @@ export const register = async (req, res) => {
 
     const passwordHash = await bcrypt.hash(password, 10);
     const newUser = new User({
+      nombres,
+      apellidos,
+      edad,
       email,
       password: passwordHash,
       username,
+      carreraUni,
+      ciclo,
+      mode,
     });
     const userSaved = await newUser.save();
     const token = await createAccessToken({ id: userSaved._id });
@@ -27,8 +43,14 @@ export const register = async (req, res) => {
     });
     res.json({
       id: userSaved._id,
+      nombres: userSaved.nombres,
+      apellidos: userSaved.apellidos,
+      edad: userSaved.edad,
       username: userSaved.username,
       email: userSaved.email,
+      carreraUni: userSaved.carreraUni,
+      ciclo: userSaved.ciclo,
+      mode: userSaved.mode,
       createdAt: userSaved.createdAt,
       updateAt: userSaved.updateAt,
     });
