@@ -36,7 +36,7 @@ const LoginPage = () => {
                     <div className='flex items-center justify-center'>
                         <img className='w-[150px] h-[150px]' src={Gato} alt="" />
                     </div>
-                    <div className='block items-center justify-center text-pretty'>
+                    <div className='block items-center justify-center text-pretty mb-3'>
                         <h3 className='font-semibold text-[20px]'>Login</h3>
                         <p className='font-normal'>Inicia sesión para poder acceder a los diversos apuntes y resúmenes que tenemos para ti</p>
                     </div>
@@ -48,13 +48,13 @@ const LoginPage = () => {
                     <div>
                         <form onSubmit={onSubmit}>
                             {
-                                errors.email && <p className='text-red-500 text-[13px]'>Correo es requerido</p>
+                                errors.email && <p className='text-red-500 text-[13px] mt-3'>Correo es requerido</p>
                             }
                             <input
                                 type="email"
                                 {...register('email', { required: true })}
                                 autoComplete='current-email'
-                                className="mb-3 mt-6 bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="mb-3 bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Correo electronico" />
                             {
                                 errors.password && <p className='text-red-500 text-[13px]'>Contraseña es requerido</p>
@@ -72,7 +72,7 @@ const LoginPage = () => {
                     </div>
 
 
-                    {/*
+
                     <div className="inline-flex items-center justify-center w-full">
                         <hr className="w-full h-px my-3 bg-[#19240f] border-0 dark:bg-gray-700" />
                         <span className="text-[13px] px-3 font-medium text-gray-900 dark:text-white dark:bg-gray-900">O</span>
@@ -91,12 +91,12 @@ const LoginPage = () => {
                             </svg>
                             Github
                         </button>
-                    </div>*/}
+                    </div>
                     <div className='block items-center justify-center text-pretty'>
-                        {/*
+
                         <button className='font-bold text-[15px] mt-3'>
                             ¿Olvidaste tu contraseña?
-                        </button>*/}
+                        </button>
                         <div className='flex items-center mt-3'>
                             <p className='text-[15px]'>¿Aún no tienes cuenta?</p>
                             <a href="/register">

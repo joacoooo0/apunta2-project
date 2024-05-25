@@ -80,32 +80,29 @@ function RegisterPage() {
                                 className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm mt-1 rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Username" />
 
+                            <div>
+                                <fieldset className='flex justify-center'>
+                                    <div className="flex items-center mt-3">
+                                        <input id="option-1" type="radio" name="countries" value="USA" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-[#cfe2b4] dark:focus:ring-[#759f43] dark:focus:bg-[#759f43] dark:bg-gray-700 dark:border-gray-600" checked />
+                                        <label htmlFor="option-1" className="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            Quiero comprar
+                                        </label>
+                                    </div>
 
-                            {/* <div>
-    <fieldset className='flex justify-center'>
-        <div class="flex items-center mt-3">
-            <input id="option-1" type="radio" name="countries" value="USA" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-[#cfe2b4] dark:focus:ring-[#759f43] dark:focus:bg-[#759f43] dark:bg-gray-700 dark:border-gray-600" checked />
-            <label for="option-1" class="block ms-2  text-sm font-medium text-gray-900 dark:text-gray-300">
-                Quiero comprar
-            </label>
-        </div>
-
-        <div class="flex items-center mt-3 mx-3">
-            <input id="option-2" type="radio" name="countries" value="Germany" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-[#cfe2b4] dark:focus:ring-[#759f43] dark:focus:bg-[#759f43] dark:bg-gray-700 dark:border-gray-600" />
-            <label for="option-2" class="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                Quiero vender
-            </label>
-        </div>
-    </fieldset>
-</div> */}
-
+                                    <div className="flex items-center mt-3 mx-3">
+                                        <input id="option-2" type="radio" name="countries" value="Germany" className="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-[#cfe2b4] dark:focus:ring-[#759f43] dark:focus:bg-[#759f43] dark:bg-gray-700 dark:border-gray-600" />
+                                        <label htmlFor="option-2" className="block ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                            Quiero vender
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
                             <button type="submit" className="w-full text-white bg-[#759f43] mt-3 hover:bg-[#6d943f] focus:ring-4 focus:ring-blue-300 font-medium rounded-[15px] text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Registrar</button>
 
                         </form>
                     </div>
 
 
-                    {/*
                     <div className="inline-flex items-center justify-center w-full">
                         <hr className="w-full h-px my-3 bg-[#19240f] border-0 dark:bg-gray-700" />
                         <span className="text-[13px] px-3 font-medium text-gray-900 dark:text-white dark:bg-gray-900">O</span>
@@ -125,7 +122,6 @@ function RegisterPage() {
                             Github
                         </button>
                     </div>
-                    */}
                     <div className='block items-center justify-center text-pretty mt-3'>
                         <div className='flex items-center'>
                             <p className='text-[15px]'>¿Ya tienes cuenta?</p>

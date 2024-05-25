@@ -7,7 +7,6 @@ import { IconNotebook } from '@tabler/icons-react';
 import { IconCash } from '@tabler/icons-react';
 import { IconSettings } from '@tabler/icons-react';
 import Github from '../assets/img/github.jsx';
-import { IconHelp } from '@tabler/icons-react';
 import { useNotes } from '../Context/NotesContext.jsx';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../Context/AuthContext.jsx';

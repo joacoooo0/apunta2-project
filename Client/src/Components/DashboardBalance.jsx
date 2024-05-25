@@ -7,7 +7,6 @@ import { IconNotebook } from '@tabler/icons-react';
 import { IconCash } from '@tabler/icons-react';
 import { IconSettings } from '@tabler/icons-react';
 import Github from '../assets/img/github.jsx';
-import { IconHelp } from '@tabler/icons-react';
 import { useAuth } from '../Context/AuthContext.jsx';
 import { useEffect, useState } from "react";
 import { IconSunFilled } from '@tabler/icons-react';
@@ -86,11 +85,17 @@ function DashboardBalance() {
                 </nav>
             </aside>
 
-            <div className="w-full h-screen overflow-x-hidden flex flex-col bg-[#cfe2b4] dark:bg-[#5a7e32]">
+            <div className="w-full h-screen overflow-x-hidden flex flex-col bg-[#cfe2b4] dark:bg-[#5a7e32] p-7">
                 <div>
-                    <button className="flex justify-center items-center bg-[#759f43] w-[60px] h-[60px] rounded-[15px] md:w-[50px] md:h-[50px] sm:rounded-[15px] ml-5 hover:shadow-lg dark:shadow-[#a6c977]" onClick={handleChangeTheme}>
-                        <IconSunFilled width={20} height={20} color='white' />
-                    </button>
+                    <div className='absolute right-0 bottom-0 m-6'>
+                        <button className="flex justify-center items-center bg-[#759f43] w-[60px] h-[60px] rounded-[15px] md:w-[50px] md:h-[50px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977] dark:bg-[#1a1a1a]" onClick={handleChangeTheme}>
+                            <IconSunFilled width={20} height={20} color='white' />
+                        </button>
+
+                    </div>
+                    <div>
+                        <h1 className='text-[60px] text-[#1a1a1a] font-bold'>BALANCE</h1>
+                    </div>
                 </div>
             </div>
 
