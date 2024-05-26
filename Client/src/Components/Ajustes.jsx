@@ -1,4 +1,6 @@
 
+import { useAuth } from '../Context/AuthContext.jsx';
+
 import { IconBookmarksFilled } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
 
@@ -7,28 +9,14 @@ import { IconNotebook } from '@tabler/icons-react';
 import { IconCash } from '@tabler/icons-react';
 import { IconSettings } from '@tabler/icons-react';
 import Github from '../assets/img/github.jsx';
-import { useAuth } from '../Context/AuthContext.jsx';
 import { IconSunFilled } from '@tabler/icons-react';
-import { useEffect, useState } from "react";
 import { IconLogout2 } from '@tabler/icons-react';
 import { IconDashboard } from '@tabler/icons-react';
-import Pexels from '../assets/img/pexels-pixabay-433333.jpg'
-
-function Dashboard() {
-
-    const [theme, setTheme] = useState(() => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
-
-    useEffect(() => {
-        document.querySelector("html").classList.toggle("dark", theme === "dark");
-    }, [theme]);
-
-    const handleChangeTheme = () => {
-        setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
-    };
 
 
+
+function Ajustes() {
     const { logout, user } = useAuth()
-
     return (
         <body className='font-gabarito flex'>
             <aside className="overflow-x-hidden relative bg-sidebar h-screen w-80 hidden sm:block shadow-xl bg-sidebar bg-[#759f43] dark:bg-[#1a1a1a]">
@@ -88,7 +76,7 @@ function Dashboard() {
             <div className="w-full h-screen overflow-x-hidden flex bg-[#cfe2b4] dark:bg-[#5a7e32]">
                 <div>
                     <div className='absolute right-0 bottom-0 m-6'>
-                        <button className="flex justify-center items-center bg-[#759f43] w-[60px] h-[60px] rounded-[15px] md:w-[50px] md:h-[50px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977] dark:bg-[#1a1a1a]" onClick={handleChangeTheme}>
+                        <button className="flex justify-center items-center bg-[#759f43] w-[60px] h-[60px] rounded-[15px] md:w-[50px] md:h-[50px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977] dark:bg-[#1a1a1a]">
                             <IconSunFilled width={20} height={20} color='white' />
                         </button>
                     </div>
@@ -138,7 +126,7 @@ function Dashboard() {
 
                     <div className="max-w-sm max-h-fit bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
-                            <img className="rounded-t-lg" src={Pexels} alt="" />
+                            <img className="rounded-t-lg" src="" alt="" />
                         </a>
                         <div className="p-5">
                             <a href="#">
@@ -162,4 +150,4 @@ function Dashboard() {
     );
 }
 
-export default Dashboard
+export default Ajustes

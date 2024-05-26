@@ -75,11 +75,11 @@ function DashboardNotes() {
                         <i className=""></i>
                         GitHub
                     </a>
-                    <button type='button' className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2" disabled>
+                    <a href='/ajustes' className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2" disabled>
                         <IconSettings stroke={2} />
                         <i className=""></i>
                         Ajustes
-                    </button>
+                    </a>
                     <Link to='/' onClick={() => {
                         logout()
                     }} className='hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2'>
@@ -90,7 +90,7 @@ function DashboardNotes() {
                     <a href="/" className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2" >
                         <IconHome2 stroke={2} />
                         <i className=""></i>
-                        Pagina Principal
+                        Inicio
                     </a>
                 </nav>
             </aside>

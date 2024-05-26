@@ -15,6 +15,9 @@ import ProfilePage from "./Components/ProfilePage.jsx";
 import NotePage from "./Components/NotePage.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 import { NoteProvider } from "./Context/NotesContext.jsx";
+import Ajustes from "./Components/Ajustes.jsx";
+import ForgotPass from "./Crud/ForgotPassword.jsx";
+import EmailConfirm from "./Crud/EmailConfirm.jsx";
 
 function App() {
   return (
@@ -35,6 +38,14 @@ function App() {
             >
             </Route>
             <Route
+              path="/forgotpass"
+              element={<ForgotPass />}>
+            </Route>
+            <Route
+              path="/confirmEmail"
+              element={<EmailConfirm />}>
+            </Route>
+            <Route
               path="/register"
               element={<RegisterPage />}>
             </Route>
@@ -42,8 +53,6 @@ function App() {
               path="/login"
               element={<LoginPage />}>
             </Route>
-
-
             <Route element={<ProtectedRoute />}>
               <Route
                 path="/dashboard"
@@ -69,6 +78,11 @@ function App() {
                 path="/profile"
                 element={<ProfilePage />}>
               </Route>
+              <Route
+                path="/ajustes"
+                element={<Ajustes />}>
+              </Route>
+
             </Route>
 
           </Routes>

@@ -1,11 +1,16 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useAuth } from '../Context/AuthContext'
 import Gato from '../assets/img/gato-siames.png'
 
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 
+import { IconEyeOff } from '@tabler/icons-react';
+import { IconEye } from '@tabler/icons-react';
+
 const LoginPage = () => {
+
+    const [showPassword, setShowPassword] = useState(false);
 
     const { register, handleSubmit, formState: { errors } } = useForm()
     const { signin, errors: signinErrors, isAuthenticated } = useAuth()
@@ -59,14 +64,22 @@ const LoginPage = () => {
                             {
                                 errors.password && <p className='text-red-500 text-[13px]'>Contraseña es requerido</p>
                             }
-                            <input
-                                type="password"
-                                {...register('password', { required: true })}
-                                autoComplete="current-password"
-                                className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Contraseña"
-                                required
-                            />
+                            <div className="relative mb-3">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    {...register('password', { required: true })}
+                                    autoComplete="current-password"
+                                    className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 pr-10 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Contraseña"
+                                    required
+                                />
+                                <div
+                                    className="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? <IconEye stroke={2} /> : <IconEyeOff stroke={2} />}
+                                </div>
+                            </div>
                             <button type="submit" className=" mt-3 w-full text-white bg-[#759f43] hover:bg-[#6d943f] focus:ring-4 focus:ring-blue-300 font-medium rounded-[15px] text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Ingresar</button>
                         </form>
                     </div>
@@ -94,9 +107,9 @@ const LoginPage = () => {
                     </div>
                     <div className='block items-center justify-center text-pretty'>
 
-                        <button className='font-bold text-[15px] mt-3'>
+                        <a href='/confirmemail' className='font-bold text-[15px] mt-3'>
                             ¿Olvidaste tu contraseña?
-                        </button>
+                        </a>
                         <div className='flex items-center mt-3'>
                             <p className='text-[15px]'>¿Aún no tienes cuenta?</p>
                             <a href="/register">
