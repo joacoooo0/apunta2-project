@@ -16,13 +16,18 @@ import Pexels from '../assets/img/pexels-pixabay-433333.jpg'
 
 function Dashboard() {
 
+    // Define el estado del tema (oscuro o claro) usando useState y detecta la preferencia del sistema
     const [theme, setTheme] = useState(() => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
 
     useEffect(() => {
+        // Selecciona el elemento "html" del documento y alterna la clase "dark"
+        // Si el valor de "theme" es "dark", se añade la clase "dark", si no, se elimina
         document.querySelector("html").classList.toggle("dark", theme === "dark");
     }, [theme]);
 
+    // Función para cambiar el tema entre claro y oscuro
     const handleChangeTheme = () => {
+        // Cambia el estado "theme" al valor opuesto: si es "light", cambia a "dark"; si es "dark", cambia a "light"
         setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
     };
 

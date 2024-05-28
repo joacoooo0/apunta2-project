@@ -10,20 +10,24 @@ import { IconEye } from '@tabler/icons-react';
 
 const LoginPage = () => {
 
-    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword, setShowPassword] = useState(false); //Estado para controlar la visibilidad de la contraseña
 
-    const { register, handleSubmit, formState: { errors } } = useForm()
-    const { signin, errors: signinErrors, isAuthenticated } = useAuth()
-    const navigate = useNavigate()
+    // Obtención de métodos y estados del formulario y la autenticación
+    const { register, handleSubmit, formState: { errors } } = useForm() //Métodos y estados del formulario
+    const { signin, errors: signinErrors, isAuthenticated } = useAuth() //Método de inicio de sesión y errores de inicio de sesión
+    const navigate = useNavigate() //Método de navegación
+
+    //Función que se ejecuta al enviar el formulario
     const onSubmit = handleSubmit((data) => {
-        signin(data)
+        signin(data) //Inicia sesión con los datos del formulario
     })
 
+    // Efecto que se ejecuta cuando cambia el estado de autenticación
     useEffect(() => {
         if (isAuthenticated) {
-            navigate('/dashboard')
+            navigate('/dashboard') // Redirigir al usuario al dashboard si está autenticado
         }
-    }, [isAuthenticated, navigate])
+    }, [isAuthenticated, navigate]) // Dependencias del efecto
 
     return (
         <>

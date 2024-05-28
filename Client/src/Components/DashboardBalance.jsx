@@ -15,18 +15,23 @@ import { IconDashboard } from '@tabler/icons-react';
 
 function DashboardBalance() {
 
+    // Define el estado para el tema (claro u oscuro), inicializándolo según la preferencia del usuario
     const [theme, setTheme] = useState(() => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
 
     useEffect(() => {
+        // Selecciona el elemento "html" del documento y alterna la clase "dark"
+        // Si el valor de "theme" es "dark", se añade la clase "dark", si no, se elimina
         document.querySelector("html").classList.toggle("dark", theme === "dark");
     }, [theme]);
 
+    // Función para cambiar el tema entre claro y oscuro
     const handleChangeTheme = () => {
+        // Cambia el estado "theme" al valor opuesto: si es "light", cambia a "dark"; si es "dark", cambia a "light"
         setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
     };
 
-
-    const { logout, user } = useAuth()
+    // Usa el hook personalizado useAuth para obtener las funciones de logout y los datos del usuario
+    const { logout, user } = useAuth();
 
     return (
         <body className='font-gabarito flex'>

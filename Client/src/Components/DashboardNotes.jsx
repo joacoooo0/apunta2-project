@@ -18,23 +18,32 @@ import { IconDashboard } from '@tabler/icons-react';
 
 function DashboardNotes() {
 
-    const { logout, user } = useAuth()
+    // Utiliza el hook useAuth para obtener las funciones logout y el usuario actual
+    const { logout, user } = useAuth();
 
-    const { getNotes, notes } = useNotes()
+    // Utiliza el hook useNotes para obtener las funciones getNotes y el estado notes
+    const { getNotes, notes } = useNotes();
 
+    // Define el estado del tema (oscuro o claro) usando useState y detecta la preferencia del sistema
     const [theme, setTheme] = useState(() => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
 
     useEffect(() => {
+        // Selecciona el elemento "html" del documento y alterna la clase "dark"
+        // Si el valor de "theme" es "dark", se añade la clase "dark", si no, se elimina
         document.querySelector("html").classList.toggle("dark", theme === "dark");
     }, [theme]);
 
+    // Función para cambiar el tema entre claro y oscuro
     const handleChangeTheme = () => {
+        // Cambia el estado "theme" al valor opuesto: si es "light", cambia a "dark"; si es "dark", cambia a "light"
         setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
     };
 
+
+    // Utiliza useEffect para obtener las notas cuando se monta el componente
     useEffect(() => {
-        getNotes()
-    }, [])
+        getNotes();
+    }, []);
 
 
 

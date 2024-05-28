@@ -1,4 +1,4 @@
-
+import { useState, useEffect } from 'react';
 import { useAuth } from '../Context/AuthContext.jsx';
 
 import { IconBookmarksFilled } from '@tabler/icons-react';
@@ -16,7 +16,22 @@ import { IconDashboard } from '@tabler/icons-react';
 
 
 function Ajustes() {
+    // Define el estado del tema (oscuro o claro) usando useState y detecta la preferencia del sistema
+    const [theme, setTheme] = useState(() => (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+
+    useEffect(() => {
+        // Selecciona el elemento "html" del documento y alterna la clase "dark"
+        // Si el valor de "theme" es "dark", se añade la clase "dark", si no, se elimina
+        document.querySelector("html").classList.toggle("dark", theme === "dark");
+    }, [theme]);
+
+    // Función para cambiar el tema entre claro y oscuro
+    const handleChangeTheme = () => {
+        // Cambia el estado "theme" al valor opuesto: si es "light", cambia a "dark"; si es "dark", cambia a "light"
+        setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
+    };
     const { logout, user } = useAuth()
+
     return (
         <body className='font-gabarito flex'>
             <aside className="overflow-x-hidden relative bg-sidebar h-screen w-80 hidden sm:block shadow-xl bg-sidebar bg-[#759f43] dark:bg-[#1a1a1a]">
@@ -76,7 +91,7 @@ function Ajustes() {
             <div className="w-full h-screen overflow-x-hidden flex bg-[#cfe2b4] dark:bg-[#5a7e32]">
                 <div>
                     <div className='absolute right-0 bottom-0 m-6'>
-                        <button className="flex justify-center items-center bg-[#759f43] w-[60px] h-[60px] rounded-[15px] md:w-[50px] md:h-[50px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977] dark:bg-[#1a1a1a]">
+                        <button className="flex justify-center items-center bg-[#759f43] w-[60px] h-[60px] rounded-[15px] md:w-[50px] md:h-[50px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977] dark:bg-[#1a1a1a]" onClick={handleChangeTheme}>
                             <IconSunFilled width={20} height={20} color='white' />
                         </button>
                     </div>

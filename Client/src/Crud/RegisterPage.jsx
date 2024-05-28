@@ -1,18 +1,24 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../Context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const { signup, isAuthenticated, errors: registerErrors } = useAuth();
-    const navigate = useNavigate();
+    const { register, handleSubmit, formState: { errors } } = useForm(); // Métodos y estado del formulario
+    const { signup, isAuthenticated, errors: registerErrors } = useAuth(); // Método de registro, estado de autenticación y errores de registro
+    const navigate = useNavigate(); // Método de navegación
 
+    // Efecto que se ejecuta cuando cambia el estado de autenticación
     useEffect(() => {
-        if (isAuthenticated) navigate('/dashboard');
-    }, [isAuthenticated, navigate]);
+        if (isAuthenticated) navigate('/dashboard'); // Redirigir al usuario al dashboard si está autenticado
+    }, [isAuthenticated, navigate]); // Dependencias del efecto
 
+    //onSubmit se utiliza para manejar la acción de enviar el formulario de registro.
+    //se pasa como argumento al método handleSubmit de la biblioteca react-hook-form
+    //se declara como async es porque dentro de esta función se llama a signup que es asincrónica.
     const onSubmit = handleSubmit(async (values) => {
+        //async, eso significa que puede contener operaciones asincrónicas dentro de ella y
+        //puede usar la palabra clave await para esperar a que se completen esas operaciones
         await signup(values);
     });
 
