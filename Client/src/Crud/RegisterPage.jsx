@@ -51,12 +51,12 @@ function RegisterPage() {
                                     {...register("nombres", { required: true })}
                                     autoComplete="current-nombres"
                                     className="bg-gray-50 border border-gray-300 text-[#19240f] text-sm  rounded-[15px] focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Nombres"
+                                    placeholder="Código de estudiante"
                                 />
                                 {errors.nombres && <p className='text-red-500 text-[13px]'>Nombres es requerido</p>}
                             </div>
 
-                            <div className='mb-3 mt-1'>
+                            {/* <div className='mb-3 mt-1'>
                                 <input
                                     type="text"
                                     {...register("apellidos", { required: true })}
@@ -164,6 +164,7 @@ function RegisterPage() {
                                 </fieldset>
                                 {errors.intent && <p className='text-red-500 text-[13px]'>Selecciona una opción</p>}
                             </div>
+                             */}
                             <div className='flex items-center justify-center mt-4'>
                                 <button type="submit" className="text-white bg-[#759f43] hover:bg-[#a6c977] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-[#a6c977] dark:hover:bg-[#759f43] dark:focus:ring-[#759f43]">Register</button>
                             </div>

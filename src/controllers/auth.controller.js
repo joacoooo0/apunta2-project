@@ -15,7 +15,6 @@ export const register = async (req, res) => {
     username,
     carreraUni,
     ciclo,
-    mode,
   } = req.body;
 
   try {
@@ -36,7 +35,6 @@ export const register = async (req, res) => {
       username,
       carreraUni,
       ciclo,
-      mode,
     });
 
     // Guarda el nuevo usuario en la base de datos
@@ -62,7 +60,6 @@ export const register = async (req, res) => {
       email: userSaved.email,
       carreraUni: userSaved.carreraUni,
       ciclo: userSaved.ciclo,
-      mode: userSaved.mode,
       createdAt: userSaved.createdAt,
       updateAt: userSaved.updateAt,
     });

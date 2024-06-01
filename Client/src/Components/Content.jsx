@@ -28,12 +28,7 @@ const Content = () => {
                     <h4 className="font-normal text-[#19240f] text-[20px] sm:text-[40px] text-pretty leading-snug dark:text-white">
                         Compra apuntes de diferentes personas y universidades, y vende y gana una comisión por cada venta.
                     </h4>
-                    <div className='md:flex block'>
-                        <a target='_blank' href='https://github.com/Panitou/apunta2-project' className="mt-4 flex justify-center items-center bg-[#759f43] w-[170px] h-[50px] sm:w-[170px] sm:h-[54px] rounded-[15px] sm:rounded-[15px] hover:shadow-lg dark:shadow-[#a6c977]">
-                            <Github className="mr-2 w-5 h-5" color={'white'} />
-                            <button className="text-white font-semibold text-[17px] sm:text-[20px]">GitHub</button>
-                        </a>
-                    </div>
+
                 </div>
 
                 <div className="invisible lg:visible flex justify-center items-center w-[0px] h-[0px] md:h-[545px] lg:w-full">

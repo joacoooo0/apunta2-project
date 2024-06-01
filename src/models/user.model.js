@@ -40,10 +40,6 @@ const userSchema = new mongoose.Schema(
       type: String, // El tipo de dato es String
       required: true, // Este campo es obligatorio
     },
-    mode: {
-      type: String, // El tipo de dato es String
-      required: true, // Este campo es obligatorio
-    },
   },
   {
     timestamps: true, // Añade campos de marca de tiempo (createdAt y updatedAt) automáticamente

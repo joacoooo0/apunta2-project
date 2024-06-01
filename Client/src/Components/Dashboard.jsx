@@ -65,11 +65,7 @@ function Dashboard() {
                 <nav className='flex flex-col justify-center p-6 font-semibold mt-[340px] space-y-3 text-[18px]'>
                     <h2 className='font-semibold text-[16px] text-[#ffffff] dark:text-[#ffffff]'>Bienvenido {user.username}</h2>
                     <hr className="h-px bg-gray-200 border-0 dark:bg-gray-700 my-5" />
-                    <a href="https://github.com/Panitou/apunta2-project" target='_blank' className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2">
-                        <Github className="w-5 h-5" color={'white'} />
-                        <i className=""></i>
-                        GitHub
-                    </a>
+
                     <a href='/ajustes' className="hover:bg-[#3d5223] bg-[#475f29] dark:bg-[#759f43] rounded-[15px] h-10 flex items-center justify-center px-6 active-nav-link text-white nav-item space-x-2" disabled>
                         <IconSettings stroke={2} />
                         <i className=""></i>
