@@ -2,6 +2,7 @@ import express from "express"; // Importa el módulo Express para crear el servi
 import morgan from "morgan"; // Importa el middleware Morgan para el registro de solicitudes HTTP
 import authRoutes from "./routes/auth.routes.js"; // Importa las rutas de autenticación desde auth.routes.js
 import notesRoutes from "./routes/notes.routes.js"; // Importa las rutas de notas desde notes.routes.js
+import idRoutes from "./routes/id.routes.js";
 import cookieParser from "cookie-parser"; // Importa el middleware cookie-parser para manejar cookies
 import cors from "cors"; // Importa el middleware CORS para permitir solicitudes de recursos cruzados
 
@@ -18,6 +19,7 @@ app.use(morgan("dev")); // Usa Morgan para registrar las solicitudes HTTP en el 
 app.use(express.json()); // Usa el middleware de Express para parsear cuerpos de solicitud JSON
 app.use(cookieParser()); // Usa el middleware cookie-parser para parsear cookies
 
+app.use("/api", idRoutes);
 app.use("/api", authRoutes); // Monta las rutas de autenticación bajo el prefijo /api
 app.use("/api", notesRoutes); // Monta las rutas de notas bajo el prefijo /api
 

@@ -1,22 +1,12 @@
 import mongoose from "mongoose";
 
-const idUsuarios = new mongoose.Schema({
+const idSchema = new mongoose.Schema({
   idUni: {
     type: String,
     required: true,
-  },
-  name: {
-    type: String,
-    requirted: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
+    unique: true,
   },
 });
 
-export default mongoose.model("idUsuario", idUsuarios);
+const idUsuarios = mongoose.model("idUsuarios", idSchema);
+export default idUsuarios;
